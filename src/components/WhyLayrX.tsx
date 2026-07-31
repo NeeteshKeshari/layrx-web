@@ -15,7 +15,7 @@ export function WhyLayrX() {
           </h2>
           <p className="mt-4 text-slate-400">
             Most tools send your question straight to a model. LayrX builds a deep understanding
-            of your repository first — then orchestrates how context, prompts, and models work
+            of your repository first — then coordinates how context, prompts, and models work
             together.
           </p>
         </div>
@@ -48,13 +48,13 @@ export function WhyLayrX() {
               <p className="mt-3 text-slate-400 leading-relaxed">
                 Copilots autocomplete lines. LayrX <strong className="text-slate-200">understands your repository</strong>{' '}
                 — its structure, dependencies, symbols, and history — and{' '}
-                <strong className="text-slate-200">orchestrates AI</strong> through a transparent
+                <strong className="text-slate-200">routes AI</strong> through a transparent
                 pipeline you control.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4 text-center">
               <CompareCard label="Typical AI tool" items={['Prompt → Model', 'Opaque context', 'Vendor lock-in']} muted />
-              <CompareCard label="LayrX" items={['Index → Context → Prompt → Route → Model', 'Full preview', 'Local-first + 12 providers']} highlight />
+              <CompareCard label="LayrX" items={['Index → Context → Prompt → Route → Model', 'Full preview', 'Local-first + 13 providers']} highlight />
             </div>
           </div>
         </div>

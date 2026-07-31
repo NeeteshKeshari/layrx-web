@@ -1,8 +1,10 @@
 export const SITE = {
   name: 'LayrX',
-  tagline: 'Repository intelligence & AI orchestration',
+  tagline: 'Repository intelligence & grounded AI',
   githubUrl: 'https://github.com/layrx/layrx',
-  docsPath: '../docs/README.md',
+  logoSrc: '/layrx-logo.png',
+  iconSrc: '/layrx-icon.png',
+  faviconSrc: '/favicon.png',
 };
 
 export const NAV_ITEMS = [
@@ -23,7 +25,7 @@ export const WHY_POINTS = [
     icon: '🔍',
   },
   {
-    title: 'Orchestration, not autopilot',
+    title: 'Pipeline you control, not autopilot',
     description:
       'Context strategies, prompt middleware, model routing, and provider management work together as a pipeline you can inspect, not a black-box chat box.',
     icon: '⚙️',
@@ -69,7 +71,7 @@ export const ARCHITECTURE_LAYERS = [
     color: 'from-sky-500/20 to-sky-600/5',
     border: 'border-sky-500/30',
     items: ['Fastify HTTP server', 'Context engine', 'Prompt pipeline', 'Model router', 'Conversation manager'],
-    description: 'Validates requests, orchestrates pipelines, delegates to packages.',
+    description: 'Validates requests, coordinates pipelines, and delegates to packages.',
   },
   {
     id: 'packages',
@@ -83,7 +85,7 @@ export const ARCHITECTURE_LAYERS = [
       'Memory engine',
       'AI cache',
       'Security scanner',
-      '12 AI providers',
+      '13 AI providers',
     ],
     description: 'Business logic, SQLite persistence, filesystem access.',
   },
@@ -97,58 +99,204 @@ export const ARCHITECTURE_LAYERS = [
   },
 ];
 
-export const FEATURE_PHASES = [
+export const FEATURE_CATEGORIES = [
   {
-    phase: 'Phase 1',
+    id: 'local-agent',
     title: 'Local Agent',
-    status: 'Complete',
+    summary: 'Deep repository intelligence that runs on your machine before any model is called.',
     modules: [
-      { name: 'Repository Indexer', desc: 'Scan and store file metadata' },
-      { name: 'Knowledge Graph', desc: 'Parse imports, build dependency graph' },
+      { name: 'Repository Indexer', desc: 'Scan and store file metadata across your codebase' },
+      { name: 'Knowledge Graph', desc: 'Parse imports and build a dependency graph' },
       { name: 'Embedding Worker', desc: 'Generate embeddings for semantic search' },
-      { name: 'Search Indexer', desc: 'Semantic, exact, prefix, hybrid search' },
-      { name: 'Memory Engine', desc: 'Entities, relations, repo memory' },
-      { name: 'AI Cache', desc: 'Cache responses by query + context' },
-      { name: 'Security Scanner', desc: 'Detect and redact secrets' },
-      { name: 'File & Git Watchers', desc: 'Incremental sync on changes' },
+      { name: 'Search Indexer', desc: 'Semantic, exact, prefix, and hybrid search' },
+      { name: 'Memory Engine', desc: 'Entities, relations, and repository memory' },
+      { name: 'AI Cache', desc: 'Cache responses by query and context fingerprint' },
+      { name: 'Security Scanner', desc: 'Detect and redact secrets before prompts' },
+      { name: 'File & Git Watchers', desc: 'Incremental sync when files or branches change' },
     ],
   },
   {
-    phase: 'Phase 2',
+    id: 'universal-cli',
     title: 'Universal CLI',
-    status: 'Complete',
+    summary: 'A single command-line interface for every LayrX capability — always via the gateway.',
     modules: [
-      { name: 'layrx init', desc: 'Register and index a repository' },
-      { name: 'layrx start / stop', desc: 'Agent lifecycle management' },
-      { name: 'layrx status', desc: 'Health and index status' },
-      { name: 'Thin HTTP client', desc: 'All intelligence via gateway' },
+      { name: 'layrx init', desc: 'Register a repository path and trigger full indexing' },
+      { name: 'layrx start / stop', desc: 'Manage the local agent lifecycle' },
+      { name: 'layrx status', desc: 'Health checks and index status at a glance' },
+      { name: 'Thin HTTP client', desc: 'All intelligence delegated to the gateway — no logic in CLI' },
     ],
   },
   {
-    phase: 'Phase 3',
+    id: 'ai-gateway',
     title: 'AI Gateway',
-    status: 'In progress',
+    summary: 'Context, prompts, routing, and providers unified behind clean REST APIs.',
     modules: [
-      { name: 'Provider Manager', desc: '12 providers — OpenAI, Anthropic, Gemini, Ollama, …' },
-      { name: 'Context Pipeline', desc: '10 strategies — debug, architecture, security, …' },
-      { name: 'Prompt Middleware', desc: '8-stage pipeline with optimization' },
-      { name: 'Model Router', desc: 'Auto, cheapest, fastest, quality, custom' },
-      { name: 'Analytics', desc: 'Tokens, cost, latency, cache metrics' },
-      { name: 'Conversation Manager', desc: 'Sessions, memory, summarization' },
+      { name: 'Provider Manager', desc: '13 providers — OpenAI, Anthropic, Gemini, Cursor, Ollama, …' },
+      { name: 'Context Pipeline', desc: '10 strategies — debug, architecture, security, and more' },
+      { name: 'Prompt Middleware', desc: '8-stage pipeline with token optimization' },
+      { name: 'Model Router', desc: 'Auto, cheapest, fastest, highest-quality, or custom' },
+      { name: 'Analytics', desc: 'Tokens, cost, latency, and cache efficiency metrics' },
+      { name: 'Conversation Manager', desc: 'Sessions, memory, and automatic summarization' },
     ],
   },
   {
-    phase: 'Phase 4',
+    id: 'web-dashboard',
     title: 'Web Dashboard',
-    status: 'In progress',
+    summary: 'Repository workspace, AI chat, monitoring, analytics, and settings in one UI.',
     modules: [
-      { name: 'Repository Workspace', desc: 'Explorer, search, graph, symbols, deps' },
-      { name: 'AI Workspace', desc: 'Streaming chat with full transparency' },
-      { name: 'Agent & Gateway Monitor', desc: 'Real-time health, jobs, logs, providers' },
-      { name: 'AI Insights & Analytics', desc: 'Historical adoption, cost, trends, insights' },
-      { name: 'Settings', desc: 'Providers, AI defaults, repository & UI prefs' },
-      { name: 'Context & prompt preview', desc: 'Inspect what the AI sees' },
+      { name: 'Repository Workspace', desc: 'Explorer, search, graph, symbols, and dependencies' },
+      { name: 'AI Workspace', desc: 'Streaming chat with full context and routing transparency' },
+      { name: 'Agent & Gateway Monitor', desc: 'Real-time health, jobs, logs, and provider status' },
+      { name: 'AI Insights & Analytics', desc: 'Historical adoption, cost trends, and productivity insights' },
+      { name: 'Settings', desc: 'Providers, AI defaults, repository and dashboard preferences' },
+      { name: 'Context & Prompt Preview', desc: 'Inspect exactly what the model receives' },
     ],
+  },
+];
+
+export const DEEP_DIVE_SECTIONS = [
+  {
+    id: 'overview',
+    title: 'How LayrX fits together',
+    tagline: 'Developer → CLI → Gateway → Packages → Providers',
+    description:
+      'Every surface talks to one gateway. The gateway coordinates context, prompts, and routing while packages handle indexing, search, memory, and persistence on your machine.',
+    bullets: [
+      'CLI and dashboard never index or call models directly',
+      'Gateway validates requests and exposes REST APIs',
+      'Packages own business logic and SQLite storage',
+      '13 AI providers connect through a single interface',
+    ],
+    example: {
+      label: 'End-to-end flow',
+      code: `# 1. Index your repo
+npm run layrx -- init
+
+# 2. Ask a grounded question via the gateway
+curl -X POST http://127.0.0.1:8765/chat \\
+  -H "Content-Type: application/json" \\
+  -d '{"message":"Explain the auth module","stream":true}'
+
+# LayrX resolves context → builds prompt → routes model → streams response`,
+    },
+  },
+  {
+    id: 'local-agent',
+    title: 'Local Agent',
+    tagline: 'Index once, understand forever',
+    description:
+      'LayrX scans your repository, extracts symbols, builds a knowledge graph, generates embeddings, and keeps everything in sync as files change — all locally.',
+    bullets: [
+      'File metadata, AST symbols, and import relationships',
+      'Semantic search over code with hybrid retrieval',
+      'Memory engine for entities and cross-file relations',
+      'Security scanner redacts API keys and tokens before AI calls',
+    ],
+    example: {
+      label: 'Semantic search over your codebase',
+      code: `curl "http://127.0.0.1:8765/search?q=provider+registry&mode=hybrid"
+
+# Returns ranked files, symbols, and snippets
+# grounded in your indexed repository — not the public internet`,
+    },
+  },
+  {
+    id: 'universal-cli',
+    title: 'Universal CLI',
+    tagline: 'Terminal-first, gateway-backed',
+    description:
+      'Initialize repositories, start the agent, and check health from your shell. The CLI is a thin HTTP client — every capability lives in the gateway and packages.',
+    bullets: [
+      'layrx init registers a path and runs the indexing pipeline',
+      'layrx start / stop manages the local agent process',
+      'layrx status shows module health and index readiness',
+      'Zero duplication of indexing or AI logic in the CLI layer',
+    ],
+    example: {
+      label: 'Typical first session',
+      code: `$ npm run layrx -- init
+✓ Repository registered: ~/projects/my-app
+✓ Indexed 456 files · graph · embeddings
+
+$ npm run layrx -- status
+Agent:  running on http://127.0.0.1:8765
+Index:  READY · 11 modules healthy`,
+    },
+  },
+  {
+    id: 'ai-gateway',
+    title: 'AI Gateway',
+    tagline: 'Context, prompts, routing — unified',
+    description:
+      'Before a model sees your question, LayrX selects a context strategy, gathers repository evidence, runs prompt middleware, optimizes tokens, and routes to the best provider and model.',
+    bullets: [
+      '10 context strategies — debugging, architecture, security, testing, …',
+      '8-stage prompt pipeline with deduplication and compression',
+      'Model router — auto, cheapest, fastest, highest-quality, custom',
+      'Provider manager for OpenAI, Anthropic, Gemini, Cursor, Ollama, and more',
+    ],
+    example: {
+      label: 'Preview what the AI will see',
+      code: `curl -X POST http://127.0.0.1:8765/context/preview \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "query": "Review the payment service for race conditions",
+    "strategy": "code-review"
+  }'
+
+# Response includes selected files, graph context,
+# strategy trace, and token estimates before any model call`,
+    },
+  },
+  {
+    id: 'web-dashboard',
+    title: 'Web Dashboard',
+    tagline: 'Full visibility from browser',
+    description:
+      'Explore your repository, chat with grounded AI, monitor agent health, analyze usage trends, and configure providers — all through gateway APIs with no duplicated backend logic.',
+    bullets: [
+      'Repository workspace — files, search, graph, symbols, dependencies',
+      'AI workspace with streaming chat and live context panel',
+      'Monitor — agent, gateway, jobs, logs, and provider cards',
+      'Analytics — cost, adoption, model comparison, and insights',
+      'Settings — connect Cursor, OpenAI, and set AI defaults',
+    ],
+    example: {
+      label: 'Connect Cursor in Settings',
+      code: `# Dashboard → Settings → AI Providers → Cursor AI
+# Or via API:
+curl -X POST http://127.0.0.1:8765/providers/connect \\
+  -H "Content-Type: application/json" \\
+  -d '{"provider":"cursor","apiKey":"YOUR_CURSOR_KEY"}'
+
+curl http://127.0.0.1:8765/providers/cursor/models
+# → composer-2.5, claude-opus-5, …`,
+    },
+  },
+  {
+    id: 'gateway-api',
+    title: 'Gateway API Reference',
+    tagline: '50+ endpoints, one surface',
+    description:
+      'Health, indexing, search, context, prompt, router, chat, providers, analytics, monitor, and settings — all exposed as REST APIs for CLI, dashboard, and custom integrations.',
+    bullets: [
+      'GET /health — module status and uptime',
+      'POST /context/build · POST /prompt/preview · POST /router/select',
+      'POST /chat — streaming grounded conversations',
+      'GET /monitor/overview · GET /analytics/summary · GET /settings',
+    ],
+    example: {
+      label: 'Route to the best model automatically',
+      code: `curl -X POST http://127.0.0.1:8765/router/select \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "mode": "auto",
+    "contextStrategy": "architecture",
+    "estimatedTokens": 8000
+  }'
+
+# → { "provider": "anthropic", "model": "claude-3-5-sonnet-latest", ... }`,
+    },
   },
 ];
 
@@ -175,46 +323,54 @@ export const INSTALL_STEPS = [
   },
   {
     title: 'Connect an AI provider (optional)',
-    code: 'curl -X POST http://127.0.0.1:8765/providers/connect \\\n  -H "Content-Type: application/json" \\\n  -d \'{"provider":"openai","apiKey":"YOUR_KEY"}\'',
-  },
-];
-
-export const DOC_LINKS = [
-  {
-    title: 'Phase overview',
-    description: 'How phases connect — CLI → Gateway → Packages',
-    href: '../docs/phases/overview.md',
-  },
-  {
-    title: 'Phase 1 — Local Agent',
-    description: 'Indexing, search, graph, embeddings, cache, security',
-    href: '../docs/phases/phase-1-local-agent.md',
-  },
-  {
-    title: 'Phase 2 — Universal CLI',
-    description: 'init, start, stop, status commands',
-    href: '../docs/phases/phase-2-universal-cli.md',
-  },
-  {
-    title: 'Phase 3 — AI Gateway',
-    description: 'Providers, context, prompt, router, analytics',
-    href: '../docs/phases/phase-3-ai-gateway.md',
-  },
-  {
-    title: 'Phase 4 — Web Dashboard',
-    description: 'Repository workspace, AI chat, monitor & analytics',
-    href: '../docs/phases/phase-4-web-dashboard.md',
-  },
-  {
-    title: 'Gateway API reference',
-    description: 'All HTTP endpoints and package delegation',
-    href: '../apps/gateway/README.md',
+    code: 'curl -X POST http://127.0.0.1:8765/providers/connect \\\n  -H "Content-Type: application/json" \\\n  -d \'{"provider":"cursor","apiKey":"YOUR_KEY"}\'',
   },
 ];
 
 export const STATS = [
   { value: '11', label: 'Intelligence modules' },
-  { value: '12', label: 'AI providers' },
+  { value: '13', label: 'AI providers' },
   { value: '10', label: 'Context strategies' },
   { value: '50+', label: 'Gateway APIs' },
 ];
+
+/** Hero pipeline demo — plain language for business readers, technical detail for engineers. */
+export const HERO_PIPELINE = {
+  title: 'How LayrX works',
+  subtitle:
+    'From your repository to a grounded answer — every step visible for engineers and measurable for leaders.',
+  windowLabel: 'request flow',
+  steps: [
+    {
+      step: '1',
+      title: 'Learn your codebase',
+      technical: '456 files indexed · dependency graph · semantic embeddings',
+      outcome: 'AI understands your product before it answers',
+    },
+    {
+      step: '2',
+      title: 'Find the right context',
+      technical: 'architecture strategy · symbol search · 94% match confidence',
+      outcome: 'Fewer wrong answers and less back-and-forth',
+    },
+    {
+      step: '3',
+      title: 'Trim what gets sent to AI',
+      technical: '8-stage prompt pipeline · 12.4k → 8.1k tokens',
+      outcome: 'Lower cost and faster responses',
+    },
+    {
+      step: '4',
+      title: 'Pick the best model',
+      technical: 'OpenAI · Anthropic · Ollama · policy-based routing · streaming',
+      outcome: 'No vendor lock-in — use what fits each task',
+    },
+    {
+      step: '5',
+      title: 'Deliver a grounded answer',
+      technical: 'cited file paths · token usage · cost estimate · full audit trail',
+      outcome: 'Trustworthy output you can review and share',
+      active: true,
+    },
+  ],
+} as const;

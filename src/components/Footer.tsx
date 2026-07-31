@@ -4,14 +4,9 @@ export function Footer() {
   return (
     <footer className="border-t border-slate-800 py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:flex-row lg:px-6">
-        <div className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-violet-600 text-sm font-bold text-white">
-            L
-          </span>
-          <div>
-            <p className="font-semibold text-white">{SITE.name}</p>
-            <p className="text-xs text-slate-500">{SITE.tagline}</p>
-          </div>
+        <div className="flex items-center justify-center md:items-start md:justify-start flex-col gap-3">
+          <img src={SITE.logoSrc} alt={SITE.name} className="h-8 w-auto" />
+          <p className="text-xs text-slate-500">{SITE.tagline}</p>
         </div>
 
         <nav className="flex flex-wrap justify-center gap-4">

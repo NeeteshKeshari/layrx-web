@@ -10,11 +10,8 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 glass">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 lg:px-6">
-        <a href="#" className="flex items-center gap-2 font-bold tracking-tight text-white">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-violet-600 text-sm">
-            L
-          </span>
-          {SITE.name}
+        <a href="#" className="flex items-center gap-2.5">
+          <img src={SITE.logoSrc} alt={SITE.name} className="h-8 w-auto" />
         </a>
 
         <ul className="hidden items-center gap-1 lg:flex">

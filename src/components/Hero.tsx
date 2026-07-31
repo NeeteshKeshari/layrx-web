@@ -1,10 +1,10 @@
-import { STATS } from '../data/content.js';
+import { HERO_PIPELINE, STATS } from '../data/content.js';
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-32">
-      <div className="hero-glow pointer-events-none absolute inset-0" />
-      <div className="grid-bg pointer-events-none absolute inset-0 opacity-40" />
+      <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+      <div className="grid-bg pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"></div>
 
       <div className="relative mx-auto max-w-6xl px-4 lg:px-6">
         <div className="mx-auto max-w-4xl text-center">
@@ -14,20 +14,20 @@ export function Hero() {
           </p>
 
           <h1
-            className="animate-slide-up text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-7xl"
+            className="animate-slide-up text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-tight"
             style={{ animationDelay: '0.1s' }}
           >
             Repository intelligence.
             <br />
-            <span className="gradient-text">AI orchestration.</span>
+            <span className="gradient-text lg:text-6xl">Grounded AI for developers.</span>
           </h1>
 
           <p
             className="animate-slide-up mx-auto mt-6 max-w-2xl text-lg text-slate-400 sm:text-xl"
             style={{ animationDelay: '0.2s' }}
           >
-            LayrX indexes your codebase, builds a knowledge graph, and orchestrates context,
-            prompts, and model routing — so every AI response is grounded in your repository,
+            LayrX indexes your codebase, builds a knowledge graph, and routes context,
+            prompts, and model selection — so every AI response is grounded in your repository,
             not generic guesses.
           </p>
 
@@ -62,20 +62,28 @@ export function Hero() {
           ))}
         </div>
 
-        <div className="animate-float mx-auto mt-16 max-w-4xl">
+        <div
+          className="animate-slide-up mx-auto mt-16 max-w-4xl text-center"
+          style={{ animationDelay: '0.45s' }}
+        >
+          <h2 className="text-xl font-semibold text-white sm:text-2xl">{HERO_PIPELINE.title}</h2>
+          <p className="mx-auto mt-2 max-w-2xl text-sm text-slate-400 sm:text-base">
+            {HERO_PIPELINE.subtitle}
+          </p>
+        </div>
+
+        <div className="animate-float mx-auto mt-8 max-w-4xl">
           <div className="glass overflow-hidden rounded-2xl shadow-2xl shadow-sky-500/10">
             <div className="flex items-center gap-2 border-b border-slate-700/50 px-4 py-3">
               <span className="h-3 w-3 rounded-full bg-red-500/80" />
               <span className="h-3 w-3 rounded-full bg-amber-500/80" />
               <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
-              <span className="ml-2 font-mono text-xs text-slate-500">layrx pipeline</span>
+              <span className="ml-2 font-mono text-xs text-slate-500">{HERO_PIPELINE.windowLabel}</span>
             </div>
-            <div className="space-y-3 p-6 font-mono text-sm">
-              <FlowLine step="1" label="Index repository" detail="456 files · graph · embeddings" />
-              <FlowLine step="2" label="Resolve context strategy" detail="architecture · 94% confidence" />
-              <FlowLine step="3" label="Build & optimize prompt" detail="12.4k → 8.1k tokens saved" />
-              <FlowLine step="4" label="Route to provider" detail="anthropic / claude · streaming" />
-              <FlowLine step="5" label="Stream grounded response" detail="with full transparency" active />
+            <div className="space-y-3 p-4 sm:p-6">
+              {HERO_PIPELINE.steps.map((step) => (
+                <FlowLine key={step.step} {...step} />
+              ))}
             </div>
           </div>
         </div>
@@ -86,31 +94,38 @@ export function Hero() {
 
 function FlowLine({
   step,
-  label,
-  detail,
+  title,
+  technical,
+  outcome,
   active,
 }: {
   step: string;
-  label: string;
-  detail: string;
+  title: string;
+  technical: string;
+  outcome: string;
   active?: boolean;
 }) {
   return (
     <div
-      className={`flex items-start gap-3 rounded-lg px-3 py-2 ${
-        active ? 'bg-sky-500/10 ring-1 ring-sky-500/30' : ''
+      className={`rounded-lg px-3 py-3 sm:px-4 ${
+        active ? 'bg-slate-900/20' : 'bg-slate-900/20'
       }`}
     >
-      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-slate-800 text-xs text-sky-400">
-        {step}
-      </span>
-      <div>
-        <p className="text-slate-200">{label}</p>
-        <p className="text-xs text-slate-500">{detail}</p>
+      <div className="flex items-start gap-3">
+        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-slate-800 text-xs font-medium text-sky-400">
+          {step}
+        </span>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-start justify-between gap-3">
+            <p className="font-medium text-slate-100">{title}</p>
+            {/* {active ? (
+              <span className="shrink-0 animate-pulse text-xs font-medium text-sky-400">● live</span>
+            ) : null} */}
+          </div>
+          <p className="mt-1 font-mono text-xs leading-relaxed text-slate-500">{technical}</p>
+          <p className="mt-2 text-xs leading-relaxed text-sky-300/90">{outcome}</p>
+        </div>
       </div>
-      {active ? (
-        <span className="ml-auto animate-pulse text-xs text-sky-400">● live</span>
-      ) : null}
     </div>
   );
 }

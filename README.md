@@ -1,6 +1,6 @@
 # LayrX Marketing Website
 
-Modern, interactive landing page for LayrX — repository intelligence and AI orchestration.
+Modern, interactive landing page for LayrX — repository intelligence and grounded AI.
 
 ## Sections
 
