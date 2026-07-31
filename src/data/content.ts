@@ -5,7 +5,9 @@ export const SITE = {
   npmPackage: 'layrx',
   npmVersion: '0.1.0',
   githubUrl: 'https://github.com/layrx/layrx',
+  siteUrl: 'https://layrx.dev',
   logoSrc: '/layrx-logo.png',
+  ogImageSrc: '/layrx-logo.png',
   iconSrc: '/layrx-icon.png',
   faviconSrc: '/favicon.png',
 };
