@@ -1,4 +1,4 @@
-import { HERO_PIPELINE, STATS } from '../data/content.js';
+import { HERO_PIPELINE, SITE, STATS } from '../data/content.js';
 
 export function Hero() {
   return (
@@ -39,13 +39,15 @@ export function Hero() {
               href="#installation"
               className="w-full rounded-xl bg-gradient-to-r from-sky-600 to-violet-600 px-8 py-3.5 text-center font-semibold text-white shadow-lg shadow-sky-500/25 transition hover:brightness-110 sm:w-auto"
             >
-              Start building →
+              Install from npm →
             </a>
             <a
-              href="#architecture"
+              href={SITE.npmUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full rounded-xl border border-slate-600 px-8 py-3.5 text-center font-medium text-slate-200 hover:border-slate-500 sm:w-auto"
             >
-              See how it works
+              View on npm
             </a>
           </div>
         </div>

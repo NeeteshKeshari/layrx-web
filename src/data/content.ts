@@ -1,10 +1,28 @@
 export const SITE = {
   name: 'LayrX',
   tagline: 'Repository intelligence & grounded AI',
+  npmUrl: 'https://www.npmjs.com/package/layrx',
+  npmPackage: 'layrx',
+  npmVersion: '0.1.0',
   githubUrl: 'https://github.com/layrx/layrx',
   logoSrc: '/layrx-logo.png',
   iconSrc: '/layrx-icon.png',
   faviconSrc: '/favicon.png',
+};
+
+export const GITHUB_COMING_SOON = {
+  windowLabel: 'github-access',
+  status: '503 · repository pending',
+  title: 'Public GitHub repository — coming soon',
+  description:
+    'The LayrX monorepo is being prepared for open source. Source access is not public yet, but the CLI and all runtime packages are published on npm.',
+  details: [
+    { label: 'repository', value: 'github.com/layrx/layrx' },
+    { label: 'state', value: 'private · release pipeline in progress' },
+    { label: 'npm package', value: 'layrx@0.1.0 (published)' },
+    { label: 'install', value: 'npm install -g layrx' },
+  ],
+  installHint: '$ npm install -g layrx\n$ layrx start && layrx dashboard',
 };
 
 export const NAV_ITEMS = [
@@ -169,10 +187,14 @@ export const DEEP_DIVE_SECTIONS = [
     ],
     example: {
       label: 'End-to-end flow',
-      code: `# 1. Index your repo
-npm run layrx -- init
+      code: `# 1. Install and start
+npm install -g layrx
+layrx start
 
-# 2. Ask a grounded question via the gateway
+# 2. Index your repo
+cd my-project && layrx init
+
+# 3. Ask a grounded question via the gateway
 curl -X POST http://127.0.0.1:8765/chat \\
   -H "Content-Type: application/json" \\
   -d '{"message":"Explain the auth module","stream":true}'
@@ -214,11 +236,14 @@ curl -X POST http://127.0.0.1:8765/chat \\
     ],
     example: {
       label: 'Typical first session',
-      code: `$ npm run layrx -- init
-✓ Repository registered: ~/projects/my-app
-✓ Indexed 456 files · graph · embeddings
+      code: `$ npm install -g layrx
+$ layrx start
+✓ Gateway + dashboard on http://127.0.0.1:8765
 
-$ npm run layrx -- status
+$ cd my-project && layrx init
+✓ Repository registered · indexed · embeddings ready
+
+$ layrx status
 Agent:  running on http://127.0.0.1:8765
 Index:  READY · 11 modules healthy`,
     },
@@ -306,24 +331,24 @@ export const INSTALL_STEPS = [
     code: 'node >= 20.0.0\nnpm >= 10',
   },
   {
-    title: 'Clone & install',
-    code: 'git clone https://github.com/layrx/layrx.git\ncd layrx\nnpm install',
+    title: 'Install from npm',
+    code: 'npm install -g layrx\n\n# Package: https://www.npmjs.com/package/layrx\n# Version: layrx@0.1.0',
   },
   {
-    title: 'Start the gateway',
-    code: 'npm run start:gateway\n# → http://127.0.0.1:8765',
+    title: 'Start the local agent',
+    code: 'layrx start\n# Gateway + dashboard UI → http://127.0.0.1:8765',
   },
   {
     title: 'Index your repository',
-    code: 'npm run layrx -- init\n# Registers path + runs full indexing pipeline',
+    code: 'cd my-project\nlayrx init\n# Requires a Git repo · creates .layrx/ · runs full index',
   },
   {
-    title: 'Launch the dashboard',
-    code: 'cd apps/dashboard && npm run dev\n# → http://localhost:5173\n# Monitor → http://localhost:5173/monitor\n# Analytics → http://localhost:5173/analytics\n# Settings → http://localhost:5173/settings',
+    title: 'Open the dashboard',
+    code: 'layrx dashboard\n# Opens http://127.0.0.1:8765 in your browser',
   },
   {
-    title: 'Connect an AI provider (optional)',
-    code: 'curl -X POST http://127.0.0.1:8765/providers/connect \\\n  -H "Content-Type: application/json" \\\n  -d \'{"provider":"cursor","apiKey":"YOUR_KEY"}\'',
+    title: 'Connect an AI provider',
+    code: '# Dashboard → Settings → AI Providers\n# Connect OpenAI, Anthropic, Gemini, or Ollama\nlayrx chat "Explain the auth module"',
   },
 ];
 

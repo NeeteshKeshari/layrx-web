@@ -73,7 +73,7 @@ export function Demo() {
               href="#installation"
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-sky-400 hover:text-sky-300"
             >
-              Run it locally →
+              Install from npm →
             </a>
           </div>
 
@@ -211,14 +211,14 @@ function AnalyticsDemo() {
 function CliDemo() {
   return (
     <div className="h-72 p-4 font-mono text-xs sm:h-80">
-      <p className="text-slate-500">$ npm run layrx -- init</p>
-      <p className="mt-2 text-emerald-400">✓ Repository registered: /Users/dev/my-repo</p>
-      <p className="text-emerald-400">✓ Indexing complete (456 files, 64ms)</p>
-      <p className="mt-4 text-slate-500">$ npm run layrx -- status</p>
-      <p className="mt-2 text-sky-400">Agent: running on http://127.0.0.1:8765</p>
-      <p className="text-slate-400">Repository: READY · 11 modules healthy</p>
-      <p className="mt-4 text-slate-500">$ curl localhost:8765/health | jq .modules</p>
-      <p className="mt-2 text-slate-400">{`{ "repositoryIndexer": "healthy", "search": "healthy", ... }`}</p>
+      <p className="text-slate-500">$ npm install -g layrx</p>
+      <p className="mt-2 text-emerald-400">+ layrx@0.1.0</p>
+      <p className="mt-4 text-slate-500">$ layrx start</p>
+      <p className="mt-2 text-sky-400">Gateway + dashboard → http://127.0.0.1:8765</p>
+      <p className="mt-4 text-slate-500">$ cd my-project && layrx init</p>
+      <p className="text-emerald-400">✓ Repository indexed · embeddings ready</p>
+      <p className="mt-4 text-slate-500">$ layrx dashboard</p>
+      <p className="mt-2 text-slate-400">Opened LayrX dashboard in your browser</p>
     </div>
   );
 }

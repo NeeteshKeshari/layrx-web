@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { NAV_ITEMS, SITE } from '../data/content.js';
+import { useComingSoon } from '../context/ComingSoonContext.js';
 import { cn } from '../utils/cn.js';
 import { useScrollSpy } from '../hooks/useScrollSpy.js';
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const activeId = useScrollSpy(NAV_ITEMS.map((item) => item.id));
+  const { openGitHubComingSoon } = useComingSoon();
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 glass">
@@ -34,19 +36,26 @@ export function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a
+            href={SITE.npmUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg border border-slate-600 px-4 py-2 text-sm text-slate-200 hover:border-sky-500/50 hover:text-white"
+          >
+            npm
+          </a>
+          <a
             href="#installation"
             className="rounded-lg border border-slate-600 px-4 py-2 text-sm text-slate-200 hover:border-sky-500/50 hover:text-white"
           >
             Get started
           </a>
-          <a
-            href={SITE.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={openGitHubComingSoon}
             className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-500"
           >
             GitHub
-          </a>
+          </button>
         </div>
 
         <button
@@ -75,17 +84,27 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-4 flex flex-col gap-2">
+            <a
+              href={SITE.npmUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-slate-600 px-4 py-2 text-center text-sm"
+            >
+              View on npm
+            </a>
             <a href="#installation" className="rounded-lg border border-slate-600 px-4 py-2 text-center text-sm">
               Get started
             </a>
-            <a
-              href={SITE.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                openGitHubComingSoon();
+              }}
               className="rounded-lg bg-sky-600 px-4 py-2 text-center text-sm font-medium text-white"
             >
               GitHub
-            </a>
+            </button>
           </div>
         </div>
       ) : null}

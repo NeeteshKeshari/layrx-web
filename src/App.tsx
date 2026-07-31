@@ -1,3 +1,4 @@
+import { ComingSoonProvider } from './context/ComingSoonContext.js';
 import { Navbar } from './components/Navbar.js';
 import { Hero } from './components/Hero.js';
 import { WhyLayrX } from './components/WhyLayrX.js';
@@ -11,7 +12,7 @@ import { Footer } from './components/Footer.js';
 
 export function App() {
   return (
-    <>
+    <ComingSoonProvider>
       <Navbar />
       <main>
         <Hero />
@@ -24,6 +25,6 @@ export function App() {
         <GitHubSection />
       </main>
       <Footer />
-    </>
+    </ComingSoonProvider>
   );
 }
